@@ -200,7 +200,6 @@ def submitFTS():
 
 
 #first time setup
-print(os.getcwd())
 if((os.path.isdir(os.getcwd()+"\cfg")) == False):
     print("Hey! It looks like you have not used this before\n\nWelcome to the First-Time Setup!")
     steamPath = input("Please enter the path to your steam directory\nThe default is C:\Program Files (x86)\Steam\ \nPlease remember to include the \ at the end of the path\nSteam Path: ")
