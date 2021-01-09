@@ -1,6 +1,5 @@
-Launch steam with original crash handler, then rename it to crashhandler1.dll
+Simple python program to swap between configs on Harrison's Val-Key easily.
 
-Now you can download and set any config as you wish using this program.
-Remember you will need to restart DPS IDLE to reload the config
+Please change the steam dir if it isn't the default (see steampath.txt)
 
 Enjoy :D
