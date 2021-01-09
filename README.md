@@ -1,7 +1,6 @@
-Please set steam path in steampath.txt if it's different from the default "C:\Program Files (x86)\Steam\"
+Launch steam with original crash handler, then rename it to crashhandler1.dll
 
-Also remember the extra "\\" at the end :D
+Now you can download and set any config as you wish using this program.
+Remember you will need to restart DPS IDLE to reload the config
 
-You will need to restart DPS IDLE for the new crashhandler.dll to be loaded by steam. Enjoy!
-
-You might need to run the config swapper as admin.
+Enjoy :D
