@@ -4,6 +4,7 @@ import tkinter as tk
 from tkinter import messagebox
 import psutil
 import time
+import random
 
 global steamPath
 global DPSIDLEPath
@@ -200,6 +201,7 @@ def submitFTS():
 
 
 #first time setup
+print(os.getcwd())
 if((os.path.isdir(os.getcwd()+"\cfg")) == False):
     print("Hey! It looks like you have not used this before\n\nWelcome to the First-Time Setup!")
     steamPath = input("Please enter the path to your steam directory\nThe default is C:\Program Files (x86)\Steam\ \nPlease remember to include the \ at the end of the path\nSteam Path: ")
@@ -215,6 +217,7 @@ else:
         DPSIDLEPath = fDPSIDLEPath.read()
     #init tkinter & run window main
     window = tk.Tk()
+    window.title(str(random.randint(10000, 10000000)))
 
     lblGeneric = tk.Label(text="Generic Configs:")
     lblOG = tk.Label(text="OG Configs:")
