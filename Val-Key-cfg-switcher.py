@@ -1,10 +1,22 @@
-import requests
+#default python packages
 import os
 import tkinter as tk
 from tkinter import messagebox
-import psutil
 import time
 import random
+#extra packages
+print("Importing packages")
+try:
+    __import__("psutil")
+except:
+    os.system("pip install psutil")
+    __import__("psutil")
+
+try:
+    __import__("requests")
+except:
+    os.system("pip install requests")
+    __import__("requests")
 
 global steamPath
 global DPSIDLEPath
