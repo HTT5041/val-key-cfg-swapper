@@ -7,16 +7,14 @@ import random
 #extra packages
 print("Importing packages")
 try:
-    __import__("psutil")
+    import psutil
 except:
     os.system("pip install psutil")
-    __import__("psutil")
 
 try:
-    __import__("requests")
+    import requests
 except:
     os.system("pip install requests")
-    __import__("requests")
 
 global steamPath
 global DPSIDLEPath
@@ -182,6 +180,23 @@ def minaruOG():
             except FileExistsError:
                 messagebox.showwarning("FileExistsError", "Please close DPS IDLE before trying to load another config!")
 
+def Tsunami():
+    stopDPSIDLE()
+    res = requests.get("https://cdn.discordapp.com/attachments/762610358723674122/798424075256987678/OG_x_Tsunami.dll")
+    if(res.status_code == 200):
+        try:
+            with open(steamPath + "crashhandler.dll", "wb") as fDLL:
+                for chunk in res.iter_content(chunk_size=128):
+                    fDLL.write(chunk)
+
+            startDPSIDLE()
+        except PermissionError:
+            try:
+                os.rename(steamPath + "crashhandler.dll", steamPath + "crashhandler1.dll")
+                messagebox.showinfo("Permission Error", "Steam is currently using crashhandler.dll, this is normal, we have renamed it to crashhandler1.dll. Please select your desired config again.")
+            except FileExistsError:
+                messagebox.showwarning("FileExistsError", "Please close DPS IDLE before trying to load another config!")
+
 def NeckLOG():
     stopDPSIDLE()
     res = requests.get("https://cdn.discordapp.com/attachments/762610358723674122/796153153006993468/NecklowfovOG.dll")
@@ -244,6 +259,7 @@ else:
     btnReset = tk.Button(text="Reset to steam crashhandler.dll", width=25, height=3, bg="white", fg="black", command=reset)
     btnMinaruOG = tk.Button(text="Minaru AIMBOT OG config", width=25, height=3, bg="white", fg="black", command=minaruOG)
     btnNeckLOG = tk.Button(text="Neck Low FOV OG config", width=25, height=3, bg="white", fg="black", command=NeckLOG)
+    btnTsunami = tk.Button(text="Tsunami Config", width=25, height=3, bg="white", fg="black", command=Tsunami)
 
     lblGeneric.pack()
     btnHead.pack()
@@ -255,6 +271,7 @@ else:
     lblOG.pack()
     btnMinaruOG.pack()
     btnNeckLOG.pack()
+    btnTsunami.pack()
     lblReset.pack()
     btnReset.pack()
 
